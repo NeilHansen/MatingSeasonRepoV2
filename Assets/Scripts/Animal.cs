@@ -131,6 +131,10 @@ public class Animal : MonoBehaviour {
         temp.b = (myColor.b + otherColor.b) / 2.0f;
 
         child.setColor(temp);
+
+        // WHEN WE HAVE A "MERGING" ANIMATION, DELAY OR MODIFY THESE!!!
+        Destroy(otherParent.gameObject);
+        Destroy(this.gameObject);
     }
 
     int[] combineHalfGenes(int[] a1, int[] a2)
