@@ -3669,10 +3669,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatAffinity: 00000000000000000000000000000000
-  carnivority: 00000000000000000000000000000000
-  litterSize: 00000000000000000000000000000000
-  cancerSusceptibility: 00000000000000000000000000000000
+  usePremadeGenes: 1
+  heatAffinityPerc: 0.25
+  carnivorityPerc: 0
+  litterSizePerc: 0.25
+  cancerSusceptibilityPerc: 0.25
 --- !u!4 &748057674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 441386, guid: ab5e0beb1c36778479983f28b65d97dd,
@@ -5732,10 +5733,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatAffinity: 00000000000000000000000000000000
-  carnivority: 00000000000000000000000000000000
-  litterSize: 00000000000000000000000000000000
-  cancerSusceptibility: 00000000000000000000000000000000
+  usePremadeGenes: 1
+  heatAffinityPerc: 0.75
+  carnivorityPerc: 1
+  litterSizePerc: 0.5
+  cancerSusceptibilityPerc: 0.25
 --- !u!4 &1152441495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 441386, guid: ab5e0beb1c36778479983f28b65d97dd,
@@ -9293,6 +9295,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114534758938520758, guid: afff2012384189741ab9dd82e6555759,
+        type: 2}
+      propertyPath: usePremadeGenes
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534758938520758, guid: afff2012384189741ab9dd82e6555759,
+        type: 2}
+      propertyPath: heatAffinityPerc
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534758938520758, guid: afff2012384189741ab9dd82e6555759,
+        type: 2}
+      propertyPath: litterSizePerc
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534758938520758, guid: afff2012384189741ab9dd82e6555759,
+        type: 2}
+      propertyPath: cancerSusceptibilityPerc
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534758938520758, guid: afff2012384189741ab9dd82e6555759,
+        type: 2}
+      propertyPath: carnivorityPerc
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afff2012384189741ab9dd82e6555759, type: 2}
   m_IsPrefabAsset: 0
@@ -9435,10 +9462,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatAffinity: 00000000000000000000000000000000
-  carnivority: 00000000000000000000000000000000
-  litterSize: 00000000000000000000000000000000
-  cancerSusceptibility: 00000000000000000000000000000000
+  usePremadeGenes: 1
+  heatAffinityPerc: 0.75
+  carnivorityPerc: 0
+  litterSizePerc: 0
+  cancerSusceptibilityPerc: 0
 --- !u!1001 &1985702107
 Prefab:
   m_ObjectHideFlags: 0
@@ -9682,10 +9710,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heatAffinity: 00000000010000000100000000000000
-  carnivority: 01000000010000000100000001000000
-  litterSize: 00000000000000000000000000000000
-  cancerSusceptibility: 00000000000000000000000000000000
+  usePremadeGenes: 1
+  heatAffinityPerc: 0.5
+  carnivorityPerc: 0
+  litterSizePerc: 0.25
+  cancerSusceptibilityPerc: 0.25
 --- !u!1001 &1992410578
 Prefab:
   m_ObjectHideFlags: 0

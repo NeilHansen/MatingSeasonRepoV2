@@ -10,7 +10,7 @@ public class Animal : MonoBehaviour {
     [SerializeField] float litterSizePerc;
     [SerializeField] float cancerSusceptibilityPerc;
 
-
+    Color myColor;
 
 
     const int GENE_SIZE = 4;
@@ -22,6 +22,9 @@ public class Animal : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        myColor = GetComponent<MeshRenderer>().material.color;
+        
+
 
         if (usePremadeGenes)
         {
@@ -115,6 +118,19 @@ public class Animal : MonoBehaviour {
 
 
         child.setGenes(heat, carn, litt, canc);
+
+
+
+        // NEW COLOR STUFF, MERGE PARENTS COLORS
+        Color otherColor = otherParent.GetColor();
+        Color temp = new Color();
+
+        temp.a = (myColor.a + otherColor.a) / 2.0f;
+        temp.r = (myColor.r + otherColor.r) / 2.0f;
+        temp.g = (myColor.g + otherColor.g) / 2.0f;
+        temp.b = (myColor.b + otherColor.b) / 2.0f;
+
+        child.setColor(temp);
     }
 
     int[] combineHalfGenes(int[] a1, int[] a2)
@@ -137,6 +153,7 @@ public class Animal : MonoBehaviour {
     {
         int[] tempSeq = gene;
 
+        Debug.Log("temp : " + printGene(tempSeq));
         // RANDOMIZE FIRST
         for (int i = 0; i < GENE_SIZE; i++)
         {
@@ -154,5 +171,16 @@ public class Animal : MonoBehaviour {
             halfGene[i] = tempSeq[i];
         }
         return halfGene;
+    }
+
+    public Color GetColor()
+    {
+        return myColor;
+    }
+
+    public void setColor(Color newColor)
+    {
+        myColor = newColor;
+        GetComponent<MeshRenderer>().material.color = myColor;
     }
 }
