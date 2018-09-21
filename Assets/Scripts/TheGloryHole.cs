@@ -17,7 +17,7 @@ public class TheGloryHole : MonoBehaviour {
         parents = new List<GameObject>();
 	}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "Animal")
         {
@@ -33,9 +33,12 @@ public class TheGloryHole : MonoBehaviour {
                 Debug.Log("sex ");
                 NumOfHits = 0;
                 Debug.Log(parents);
+               
                 GameObject animal = Instantiate(animalPrefab, transform.position, transform.rotation);
                 this.gameObject.GetComponent<Mating>().mate(parents[0].GetComponent<Animal>(), parents[1].GetComponent<Animal>(), animal.GetComponent<Animal>());
-              //  this.gameObject.GetComponent<Mating>().mate(parents[0], parents[1], Instantiate(animalPrefab, new Vector3(0,0,0), Quaternion.identity);
+                parents = new List<GameObject>();
+               
+                //  this.gameObject.GetComponent<Mating>().mate(parents[0], parents[1], Instantiate(animalPrefab, new Vector3(0,0,0), Quaternion.identity);
             }
           
         }
