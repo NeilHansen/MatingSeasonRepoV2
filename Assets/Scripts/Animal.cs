@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animal : MonoBehaviour {
+    [SerializeField] public string name;
+
     [SerializeField] GameObject head, body, neckHead, neckBody;
 
 
@@ -21,10 +23,10 @@ public class Animal : MonoBehaviour {
 
 
     const int GENE_SIZE = 10;
-    int[] heatAffinity = new int[GENE_SIZE];
-    int[] carnivority;
-    int[] litterSize;
-    int[] cancerSusceptibility;
+    public int[] heatAffinity = new int[GENE_SIZE];
+    public int[] carnivority;
+    public int[] litterSize;
+    public int[] cancerSusceptibility;
 
     int[] headSize;
     int[] width;
@@ -89,7 +91,7 @@ public class Animal : MonoBehaviour {
         return temp;
     }
 
-    float getPercFromGene(int[] myGene)
+    public float getPercFromGene(int[] myGene)
     {
         float perc = 0;
         for (int i = 0; i < GENE_SIZE; i++)
