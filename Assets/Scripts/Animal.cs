@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animal : MonoBehaviour {
+    [SerializeField] GameObject head, body, neck;
+
+
     [SerializeField] bool usePremadeGenes = false;
+
+    [SerializeField] float headSizePerc;
+    [SerializeField] float widthSizePerc;
+    [SerializeField] float lengthPerc;
 
     [SerializeField] float heatAffinityPerc;
     [SerializeField] float carnivorityPerc;
@@ -13,16 +20,22 @@ public class Animal : MonoBehaviour {
     Color myColor;
 
 
-    const int GENE_SIZE = 4;
+    const int GENE_SIZE = 8;
     int[] heatAffinity = new int[GENE_SIZE];
     int[] carnivority;
     int[] litterSize;
     int[] cancerSusceptibility;
 
+    int[] headSize;
+    int[] width;
+    int[] length;
+
 
     // Use this for initialization
     void Start () {
-        myColor = GetComponent<MeshRenderer>().material.color;
+        // myColor = GetComponent<MeshRenderer>().material.color;    Now we have body parts?? This is getting intense...
+        myColor = body.GetComponent<MeshRenderer>().material.color;
+        
         
 
 
@@ -32,6 +45,10 @@ public class Animal : MonoBehaviour {
             carnivority = getGeneFromNum(getNumberofOnes(carnivorityPerc));
             litterSize = getGeneFromNum(getNumberofOnes(litterSizePerc));
             cancerSusceptibility = getGeneFromNum(getNumberofOnes(cancerSusceptibilityPerc));
+
+            headSize = getGeneFromNum(getNumberofOnes(headSizePerc));
+            width = getGeneFromNum(getNumberofOnes(widthSizePerc));
+            length = getGeneFromNum(getNumberofOnes(lengthPerc));
             // ADD MORE ONCE WE HAVE MORE TRAITS!!!!!!
 
             Debug.Log("heat gene generated from perc: " + printGene(heatAffinity));
@@ -40,7 +57,21 @@ public class Animal : MonoBehaviour {
             Debug.Log("canc gene generated from perc: " + printGene(cancerSusceptibility));
         }
 
-	}
+        Vector3 headV = head.transform.localScale;
+        headV.x = getPercFromGene(headSize) * 2 + 0.25f;    // * 2 because a chromose of "1100" (50%) should be normal, therefore *1.0f in scale.
+        headV.y = getPercFromGene(headSize) * 2 + 0.25f;
+        headV.z = getPercFromGene(headSize) * 2 + 0.25f;
+        head.transform.localScale = headV;
+
+        Vector3 bodyV = body.transform.localScale;
+        bodyV.x = getPercFromGene(width) * 2 + 0.25f;
+        bodyV.y = getPercFromGene(length) * 2 + 0.25f;
+        bodyV.z = getPercFromGene(width) * 2 + 0.25f;
+        body.transform.localScale = bodyV;
+
+
+
+    }
 
     string printGene(int[] gene)
     {
@@ -51,6 +82,20 @@ public class Animal : MonoBehaviour {
             temp += gene[i];
         }
         return temp;
+    }
+
+    float getPercFromGene(int[] myGene)
+    {
+        float perc = 0;
+        for (int i = 0; i < GENE_SIZE; i++)
+        {
+            if (myGene[i] == 1)
+            {
+                perc += 1.0f / (float)GENE_SIZE;
+            }
+        }
+
+        return perc;
     }
 
     int[] getGeneFromNum(int num)
@@ -98,12 +143,16 @@ public class Animal : MonoBehaviour {
 	}
 
 
-    public void setGenes(int[] heat, int [] carn, int[] litt, int[] canc)
+    public void setGenes(int[] heat, int [] carn, int[] litt, int[] canc, int[] head, int[] wid, int[] leng)
     {
         heatAffinity = heat;
         carnivority = carn;
         litterSize = litt;
         cancerSusceptibility = canc;
+
+        headSize = head;
+        width = wid;
+        length = leng;
     }
 
     public void mateWith(Animal otherParent, Animal child)
@@ -114,10 +163,14 @@ public class Animal : MonoBehaviour {
         int[] carn = combineHalfGenes(getHalf(carnivority), getHalf(otherParent.carnivority));
         int[] litt = combineHalfGenes(getHalf(litterSize), getHalf(otherParent.litterSize));
         int[] canc = combineHalfGenes(getHalf(cancerSusceptibility), getHalf(otherParent.cancerSusceptibility));
+
+        int[] head = combineHalfGenes(getHalf(headSize), getHalf(otherParent.headSize));
+        int[] wid = combineHalfGenes(getHalf(width), getHalf(otherParent.width));
+        int[] leng = combineHalfGenes(getHalf(length), getHalf(otherParent.length));
         // ADD MORE WHEN WE ADD MORE ATTRIBUTES
 
 
-        child.setGenes(heat, carn, litt, canc);
+        child.setGenes(heat, carn, litt, canc, head, wid, leng);
 
 
 
@@ -185,6 +238,8 @@ public class Animal : MonoBehaviour {
     public void setColor(Color newColor)
     {
         myColor = newColor;
-        GetComponent<MeshRenderer>().material.color = myColor;
+        //GetComponent<MeshRenderer>().material.color = myColor;
+        body.GetComponent<MeshRenderer>().material.color = myColor;
+        head.GetComponent<MeshRenderer>().material.color = myColor;
     }
 }
