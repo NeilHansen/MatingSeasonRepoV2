@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animal : MonoBehaviour {
-    [SerializeField] GameObject head, body, neck;
+    [SerializeField] GameObject head, body, neckHead, neckBody;
 
 
     [SerializeField] bool usePremadeGenes = false;
@@ -20,7 +20,7 @@ public class Animal : MonoBehaviour {
     Color myColor;
 
 
-    const int GENE_SIZE = 8;
+    const int GENE_SIZE = 10;
     int[] heatAffinity = new int[GENE_SIZE];
     int[] carnivority;
     int[] litterSize;
@@ -61,15 +61,20 @@ public class Animal : MonoBehaviour {
         headV.x = getPercFromGene(headSize) * 2 + 0.25f;    // * 2 because a chromose of "1100" (50%) should be normal, therefore *1.0f in scale.
         headV.y = getPercFromGene(headSize) * 2 + 0.25f;
         headV.z = getPercFromGene(headSize) * 2 + 0.25f;
-        head.transform.localScale = headV;
+        //head.transform.localScale = headV;
+
+        neckHead.transform.localScale = headV;
 
         Vector3 bodyV = body.transform.localScale;
         bodyV.x = getPercFromGene(width) * 2 + 0.25f;
         bodyV.y = getPercFromGene(length) * 2 + 0.25f;
         bodyV.z = getPercFromGene(width) * 2 + 0.25f;
-        body.transform.localScale = bodyV;
+        //body.transform.localScale = bodyV;
+
+        neckBody.transform.localScale = bodyV;
 
 
+    
 
     }
 
