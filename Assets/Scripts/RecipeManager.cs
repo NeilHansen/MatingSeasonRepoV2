@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour {
 
+    
+    [SerializeField] int sellingMultiplier = 300;
+    [SerializeField] int numberOfOrders = 3;
+    int ordersFulfilled = 0;
     [SerializeField] Animal animalToCompare;
 
     [SerializeField] Image Icon1, Icon2, Icon3;
     [SerializeField] Text req1, req2, req3;
     Image[] images;
     Text[] texts;
-    
+
 
     int numberOfCriteria = 3;   // IF YOU CHANGE THIS< MODIFY COMPARE FUNCTION
     const int numberOfTraits = 4;
@@ -21,20 +25,20 @@ public class RecipeManager : MonoBehaviour {
 
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start() {
 
-        images = new Image[] { Icon1, Icon2, Icon3};
+        images = new Image[] { Icon1, Icon2, Icon3 };
         texts = new Text[] { req1, req2, req3 };
 
         demand = getRandomRecipe();
         updateDemandUI();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 
     void updateDemandUI()
     {
@@ -108,28 +112,28 @@ public class RecipeManager : MonoBehaviour {
                     if (rec.expectedCanc < 0)   // -1 means not part of recipe, yet
                     {
                         counter++;
-                        rec.expectedCanc = ((float)traitPercWanted * 20)/100.0f;
+                        rec.expectedCanc = ((float)traitPercWanted * 20) / 100.0f;
                     }
                     break;
                 case 1:
                     if (rec.expectedCarn < 0)   // -1 means not part of recipe, yet
                     {
                         counter++;
-                        rec.expectedCarn = ((float)traitPercWanted * 20)/100.0f;
+                        rec.expectedCarn = ((float)traitPercWanted * 20) / 100.0f;
                     }
                     break;
                 case 2:
                     if (rec.expectedHeat < 0)   // -1 means not part of recipe, yet
                     {
                         counter++;
-                        rec.expectedHeat = ((float)traitPercWanted * 20)/100.0f;
+                        rec.expectedHeat = ((float)traitPercWanted * 20) / 100.0f;
                     }
                     break;
                 case 3:
                     if (rec.expectedLitt < 0)   // -1 means not part of recipe, yet
                     {
                         counter++;
-                        rec.expectedLitt = ((float)traitPercWanted * 20)/100.0f;
+                        rec.expectedLitt = ((float)traitPercWanted * 20) / 100.0f;
                     }
                     break;
                 default:
@@ -176,6 +180,26 @@ public class RecipeManager : MonoBehaviour {
 
     }
 
+    public void setAnimaltoSell(GameObject animal)
+    {
+        animalToCompare = animal.GetComponent<Animal>();
+    }
+
+    public void sellAnimal()
+    {
+        int value = (int)(compareAnimal(demand) * sellingMultiplier);
+        //SET SLIDER HERE USING 'value'
+        ordersFulfilled++;
+
+        if (ordersFulfilled < numberOfOrders)
+        {
+            demand = getRandomRecipe();
+            updateDemandUI();
+        }
+
+        Destroy(animalToCompare.gameObject);
+
+    }
 
     public class Recipe
     {
