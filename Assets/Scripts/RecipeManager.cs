@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class RecipeManager : MonoBehaviour {
-
+    [SerializeField] Slider goalSlider;
     
     [SerializeField] int sellingMultiplier = 300;
     [SerializeField] int numberOfOrders = 3;
@@ -187,8 +187,17 @@ public class RecipeManager : MonoBehaviour {
 
     public void sellAnimal()
     {
+        List<GameObject> tempList = GetComponent<TheGloryHole>().getParentList();
+
+        if(tempList.Count != 1)
+        {
+            Debug.Log("Can't sell, error on animal list");
+            return;
+        }
+        setAnimaltoSell(tempList[0]);
         int value = (int)(compareAnimal(demand) * sellingMultiplier);
-        //SET SLIDER HERE USING 'value'
+        goalSlider.value += value;
+
         ordersFulfilled++;
 
         if (ordersFulfilled < numberOfOrders)
@@ -198,7 +207,7 @@ public class RecipeManager : MonoBehaviour {
         }
 
         Destroy(animalToCompare.gameObject);
-
+        GetComponent<TheGloryHole>().clearList();
     }
 
     public class Recipe

@@ -37,11 +37,27 @@ public class TheGloryHole : MonoBehaviour {
                 GameObject animal = Instantiate(animalPrefab, transform.position, transform.rotation);
                 this.gameObject.GetComponent<Mating>().mate(parents[0].GetComponent<Animal>(), parents[1].GetComponent<Animal>(), animal.GetComponent<Animal>());
                 parents = new List<GameObject>();
+
+
+
                
                 //  this.gameObject.GetComponent<Mating>().mate(parents[0], parents[1], Instantiate(animalPrefab, new Vector3(0,0,0), Quaternion.identity);
             }
           
         }
+    }
+
+    public List<GameObject> getParentList()
+    {
+        return parents;
+    }
+
+    public void clearList()
+    {
+        parents = new List<GameObject>();
+        AnimalPresent = false;
+        StartMating = false;
+        NumOfHits = 0;
     }
 
     // Update is called once per frame
