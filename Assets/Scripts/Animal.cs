@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Animal : MonoBehaviour {
-    [SerializeField] public string name;
+    [SerializeField] public string myName;
 
     [SerializeField] GameObject head, body, neckHead, neckBody;
 

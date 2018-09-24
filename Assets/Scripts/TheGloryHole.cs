@@ -34,10 +34,12 @@ public class TheGloryHole : MonoBehaviour {
                 NumOfHits = 0;
                 Debug.Log(parents);
                
+
                 GameObject animal = Instantiate(animalPrefab, transform.position, transform.rotation);
                 this.gameObject.GetComponent<Mating>().mate(parents[0].GetComponent<Animal>(), parents[1].GetComponent<Animal>(), animal.GetComponent<Animal>());
                 parents = new List<GameObject>();
 
+                GetComponent<MatingMouseHover>().refreshAnimalList();
 
 
                

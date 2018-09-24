@@ -17,12 +17,15 @@ public class RecipeManager : MonoBehaviour {
     Text[] texts;
 
 
+
+
     int numberOfCriteria = 3;   // IF YOU CHANGE THIS< MODIFY COMPARE FUNCTION
     const int numberOfTraits = 4;
 
     Recipe demand;
 
 
+    [SerializeField] Sprite heatSymbol, carnSymbol, littSymbol, cancSymbol;
 
 
     // Use this for initialization
@@ -44,26 +47,31 @@ public class RecipeManager : MonoBehaviour {
     {
         int counter = 0;
 
-        if (demand.expectedCanc > -0.5)
+        if (demand.expectedHeat > -0.5)
         {
-            texts[counter].text = percToText(demand.expectedCanc);
+            texts[counter].text = percToText(demand.expectedHeat);
+            images[counter].sprite = heatSymbol;
             counter++;
         }
         if (demand.expectedCarn > -0.5)
         {
             texts[counter].text = percToText(demand.expectedCarn);
-            counter++;
-        }
-        if (demand.expectedHeat > -0.5)
-        {
-            texts[counter].text = percToText(demand.expectedHeat);
+            images[counter].sprite = carnSymbol;
             counter++;
         }
         if (demand.expectedLitt > -0.5)
         {
             texts[counter].text = percToText(demand.expectedLitt);
+            images[counter].sprite = littSymbol;
             counter++;
         }
+        if (demand.expectedCanc > -0.5)
+        {
+            texts[counter].text = percToText(demand.expectedCanc);
+            images[counter].sprite = cancSymbol;
+            counter++;
+        }
+        
 
 
     }
