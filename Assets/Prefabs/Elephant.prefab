@@ -332,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myName: Elephant
   head: {fileID: 1873440068183074}
   body: {fileID: 1402271653915394}
   neckHead: {fileID: 1837701119168496}
@@ -344,6 +345,10 @@ MonoBehaviour:
   carnivorityPerc: 0
   litterSizePerc: 0
   cancerSusceptibilityPerc: 0
+  heatAffinity: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  carnivority: 
+  litterSize: 
+  cancerSusceptibility: 
 --- !u!114 &114747968474012400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -361,7 +366,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1910477312002334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 251cca853fd3e3844af5c7f531a6b834, type: 3}
   m_Name: 

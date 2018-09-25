@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myName: Pig
   head: {fileID: 1578041068104418}
   body: {fileID: 1672528191609670}
   neckHead: {fileID: 1528970897610298}
@@ -357,6 +358,10 @@ MonoBehaviour:
   carnivorityPerc: 0.5
   litterSizePerc: 0.8
   cancerSusceptibilityPerc: 0.3
+  heatAffinity: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  carnivority: 
+  litterSize: 
+  cancerSusceptibility: 
 --- !u!114 &114942286045005740
 MonoBehaviour:
   m_ObjectHideFlags: 1

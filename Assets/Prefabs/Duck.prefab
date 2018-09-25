@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myName: Duck
   head: {fileID: 1428439602340162}
   body: {fileID: 1808363242143532}
   neckHead: {fileID: 1033130060332094}
@@ -355,6 +356,10 @@ MonoBehaviour:
   carnivorityPerc: 0.4
   litterSizePerc: 0.4
   cancerSusceptibilityPerc: 0.1
+  heatAffinity: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  carnivority: 
+  litterSize: 
+  cancerSusceptibility: 
 --- !u!114 &114619664401974522
 MonoBehaviour:
   m_ObjectHideFlags: 1

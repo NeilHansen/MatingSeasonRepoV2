@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca06adacefa8aa14f96bd4d4f80b71c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myName: Fox
   head: {fileID: 1171772986421920}
   body: {fileID: 1819922320015470}
   neckHead: {fileID: 1233589999287320}
@@ -368,6 +369,10 @@ MonoBehaviour:
   carnivorityPerc: 1
   litterSizePerc: 0.4
   cancerSusceptibilityPerc: 0.1
+  heatAffinity: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  carnivority: 
+  litterSize: 
+  cancerSusceptibility: 
 --- !u!135 &135426253161648334
 SphereCollider:
   m_ObjectHideFlags: 1
