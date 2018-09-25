@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RecipeManager : MonoBehaviour {
     [SerializeField] Slider goalSlider;
     
-    [SerializeField] int sellingMultiplier = 300;
+    [SerializeField] int sellingMultiplier = 200;
     [SerializeField] int numberOfOrders = 3;
     int ordersFulfilled = 0;
     [SerializeField] Animal animalToCompare;
@@ -17,7 +17,7 @@ public class RecipeManager : MonoBehaviour {
     Text[] texts;
 
 
-
+    [SerializeField] GameObject buyingScreen;
 
     int numberOfCriteria = 3;   // IF YOU CHANGE THIS< MODIFY COMPARE FUNCTION
     const int numberOfTraits = 4;
@@ -212,6 +212,13 @@ public class RecipeManager : MonoBehaviour {
         {
             demand = getRandomRecipe();
             updateDemandUI();
+        }
+        else
+        {
+            demand = getRandomRecipe();
+            updateDemandUI();
+            ordersFulfilled = 0;
+            buyingScreen.SetActive(true);
         }
 
         Destroy(animalToCompare.gameObject);

@@ -8321,6 +8321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d11187d6968d4dbc57fbc6442666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSlider: {fileID: 780712797}
+  price: 150
   animalPen: {fileID: 763869705}
 --- !u!4 &890229817 stripped
 Transform:
@@ -9330,6 +9332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d11187d6968d4dbc57fbc6442666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSlider: {fileID: 780712797}
+  price: 150
   animalPen: {fileID: 1747470458}
 --- !u!1001 &1004676511
 Prefab:
@@ -10363,6 +10367,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d11187d6968d4dbc57fbc6442666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSlider: {fileID: 780712797}
+  price: 150
   animalPen: {fileID: 993869426}
 --- !u!4 &1112883831 stripped
 Transform:
@@ -10510,6 +10516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d11187d6968d4dbc57fbc6442666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSlider: {fileID: 780712797}
+  price: 150
   animalPen: {fileID: 122566120}
 --- !u!1 &1127308655
 GameObject:
@@ -13126,6 +13134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63d11187d6968d4dbc57fbc6442666e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalSlider: {fileID: 780712797}
+  price: 150
   animalPen: {fileID: 1066739491}
 --- !u!1001 &1517735666
 Prefab:
@@ -14502,6 +14512,7 @@ MonoBehaviour:
   req1: {fileID: 2089790786}
   req2: {fileID: 1920361863}
   req3: {fileID: 1869119038}
+  buyingScreen: {fileID: 601436975}
   heatSymbol: {fileID: 21300000, guid: 8b7456ddbb87a8a4f8872a7cd2d637e2, type: 3}
   carnSymbol: {fileID: 21300000, guid: 9fc19e16bd9ce72438694ce0d0a8d9d9, type: 3}
   littSymbol: {fileID: 21300000, guid: 76063ee0af2660a4597c2e703ab28b49, type: 3}
