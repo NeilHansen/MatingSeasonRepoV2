@@ -203,7 +203,16 @@ public class RecipeManager : MonoBehaviour {
             return;
         }
         setAnimaltoSell(tempList[0]);
-        int value = (int)(compareAnimal(demand) * sellingMultiplier);
+        int value;
+        if (compareAnimal(demand) < 0.5f)
+        {
+            value = 0;
+        }
+        else
+        {
+            value = (int)(compareAnimal(demand) * sellingMultiplier);
+        }
+        
         goalSlider.value += value;
 
         ordersFulfilled++;
